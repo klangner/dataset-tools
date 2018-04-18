@@ -35,6 +35,8 @@ def merge(source_dataset, destination_folder):
 			shutil.copyfile(os.path.realpath(source_file), os.path.realpath(destination_file))
 
 
+if __name__ == '__main__':
+
 if len(sys.argv) != 3:
 	print("Usage:")
 	print("  python merge_classifier_dataset.py <source_dataset> <destination_folder>")
