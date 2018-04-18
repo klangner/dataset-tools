@@ -10,7 +10,7 @@ Various tools for working with datasets and creating machine learning models.
 This tool is used to merge datasets. Usage:
 
 ```bash
-python scripts.merge <source_dataset> <destination_dataset>
+python -m scripts.merge <source_dataset> <destination_dataset>
 ```
 
 Where:
@@ -21,16 +21,15 @@ Where:
 ## Retrain model
 
 ```bash
-IMAGE_SIZE=224
-ARCHITECTURE="mobilenet_0.50_${IMAGE_SIZE}"
+ARCHITECTURE="mobilenet_0.50_224"
 
-python -m scripts.retrain  --bottleneck_dir=dr_files/bottlenecks --how_many_training_steps=500 --model_dir=dr_files/models/ --summaries_dir=dr_files/training_summaries/"${ARCHITECTURE}" --output_graph=dr_files/retrained_graph.pb --output_labels=dr_files/retrained_labels.txt --architecture="${ARCHITECTURE}" --image_dir=dr_files/card-colors
+python -m scripts.retrain --bottleneck_dir=build/bottlenecks --how_many_training_steps=500 --model_dir=build/models/ --summaries_dir=build/training_summaries/"${ARCHITECTURE}" --output_graph=build/retrained_graph.pb --output_labels=build/retrained_labels.txt --architecture="${ARCHITECTURE}" --image_dir=dataset/card-colors
 ```
 
 ## Label image
 
 ```bash
-python -m scripts.label_image --graph=dr_files/retrained_graph.pb --labels=dr_files/retrained_labels.txt --image=dr_files/card-colors/diamonds/83772cbc-d6c9-4076-a7f8-30e06618ea09.jpg
+python -m scripts.label_image --graph=build/retrained_graph.pb --labels=build/retrained_labels.txt --image=dataset/card-colors/diamonds/83772cbc-d6c9-4076-a7f8-30e06618ea09.jpg
 ```
 
 
