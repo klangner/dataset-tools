@@ -32,6 +32,12 @@ python -m scripts.retrain --bottleneck_dir=build/bottlenecks --how_many_training
 python -m scripts.label_image --graph=build/retrained_graph.pb --labels=build/retrained_labels.txt --image=dataset/card-colors/diamonds/83772cbc-d6c9-4076-a7f8-30e06618ea09.jpg
 ```
 
+## Optimize model
+
+```bash
+python -m tensorflow.python.tools.optimize_for_inference --input=build/retrained_graph.pb --output=build/optimized_graph.pb --input_names="input" --output_names="final_result"
+```
+
 
 # Contribution
 
