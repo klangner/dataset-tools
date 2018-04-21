@@ -980,8 +980,7 @@ def main(_):
 
   # Set up the pre-trained graph.
   maybe_download_and_extract(model_info['data_url'])
-  graph, bottleneck_tensor, resized_image_tensor = (
-      create_model_graph(model_info))
+  graph, bottleneck_tensor, resized_image_tensor = (create_model_graph(model_info))
 
   # Look at the folder structure, and create lists of all the images.
   image_lists = create_image_lists(FLAGS.image_dir, FLAGS.testing_percentage,

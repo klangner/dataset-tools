@@ -36,9 +36,8 @@ def merge(source_dataset, destination_folder):
 
 
 if __name__ == '__main__':
-
-if len(sys.argv) != 3:
-	print("Usage:")
-	print("  python merge_classifier_dataset.py <source_dataset> <destination_folder>")
-else:
-	merge(sys.argv[1], sys.argv[2])
+    if len(sys.argv) != 3:
+        print("Usage:")
+        print("  python merge_classifier_dataset.py <source_dataset> <destination_folder>")
+    else:
+        merge(sys.argv[1], sys.argv[2])
